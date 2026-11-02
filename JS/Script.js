@@ -46,7 +46,7 @@ const DATA = {
 
 /* 2. ROBO-B (imagen propia; la misma para todas las expresiones) */
 const SCRIPT_URL = document.currentScript ? document.currentScript.src : location.href;
-const ROBO_IMG = new URL('/assets/imagenes/robo-holaaa.gif', SCRIPT_URL).href;
+const ROBO_IMG = new URL('../assets/imagenes/robo-holaaa.gif', SCRIPT_URL).href;
 
 function robo(mood = 'happy') {
   return `<img src="${ROBO_IMG}" alt="Robo-B">`;
@@ -144,8 +144,7 @@ function selectZone(i) {
 document.addEventListener('DOMContentLoaded', () => {
   $$('.robo-slot[data-robo]').forEach(el => { el.innerHTML = robo(el.dataset.robo); });
 
-  /* Página de bienvenida: el botón lleva al menú */
-  on('#startBtn', 'click', () => { window.location.href = 'menu.html'; });
+  /* En index.html, «¡Comenzar!» es un enlace normal (href): no necesita JavaScript */
 
   /* Página del menú */
   if (!$('#hub')) return;
@@ -170,12 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $('#missionName').textContent = DATA.zones[state.zone].name;
     $('#missionScreen').hidden = false;
   });
-  /* Volver al menú principal: cierra la pantalla de misión y regresa a la ciudad */
-  on('#backBtn', 'click', e => {
-    e.preventDefault();
-    $('#missionScreen').hidden = true;
-    say('¡De vuelta en la ciudad! ¿Qué edificio exploramos ahora?', 'cheer');
-  });
+  /* El botón de volver (#backBtn) es un enlace normal a index.html: no necesita JavaScript */
 
   /* Vistas anteriores (mundos, misiones, recompensas) */
   on('#worlds', 'click', e => {

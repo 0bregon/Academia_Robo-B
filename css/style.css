@@ -285,3 +285,6 @@ body:has(.welcome) .blob, body:has(.welcome) .cloud { background: #2a1f7a; }
 body:has(.welcome) .logo-top { background: #ff3da6; border-radius: 4px; }
 body:has(.welcome) .logo-main { color: #2ff3ff; }
 body:has(.welcome) .slogan { color: #e8f6ff; }
+
+/* Enlaces con aspecto de botón */
+a.btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
