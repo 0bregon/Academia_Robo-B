@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciudad Robo-B · Academia Robo-B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@700;800&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- MENÚ PRINCIPAL: Ciudad de Panamá del futuro -->
+  <main id="hub" class="hub on city">
+
+    <svg class="scene" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ciudad de Panamá futurista">
+      <defs>
+        <pattern id="w" width="16" height="22" patternUnits="userSpaceOnUse"><rect x="4" y="5" width="8" height="11" rx="1" fill="#fff" opacity=".55"/></pattern>
+        <symbol id="palm" viewBox="0 0 100 160">
+          <path d="M52 160Q58 100 48 50" stroke="#5a3a7a" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <g fill="#19c58a"><ellipse cx="50" cy="48" rx="40" ry="8" transform="rotate(-35 50 48)"/><ellipse cx="50" cy="48" rx="40" ry="8" transform="rotate(-8 50 48)"/><ellipse cx="50" cy="48" rx="40" ry="8" transform="rotate(20 50 48)"/><ellipse cx="50" cy="48" rx="40" ry="8" transform="rotate(48 50 48)"/></g>
+        </symbol>
+      </defs>
+
+      <!-- Cielo y bahía -->
+      <rect width="1600" height="900" fill="#1a1147"/>
+      <circle cx="1400" cy="140" r="64" fill="#ff3da6"/>
+      <g fill="#2e2080"><rect x="200" y="110" width="170" height="34" rx="17"/><rect x="620" y="70" width="130" height="30" rx="15"/><rect x="1000" y="160" width="150" height="32" rx="16"/></g>
+      <path d="M0 650V480Q130 410 290 480Q420 540 520 650Z" fill="#2a1f7a"/>
+      <rect y="650" width="1600" height="110" fill="#0e2a6b"/>
+
+      <!-- Puente de las Américas -->
+      <rect x="1000" y="606" width="600" height="10" fill="#bff6ff"/>
+      <path d="M1120 606Q1340 400 1560 606" stroke="#ffe14a" stroke-width="12" fill="none"/>
+      <path d="M1200 548V606M1280 513V606M1340 505V606M1400 513V606M1480 548V606" stroke="#ffe14a" stroke-width="4"/>
+      <rect x="1113" y="606" width="14" height="150" fill="#6a7bd6"/><rect x="1553" y="606" width="14" height="150" fill="#6a7bd6"/>
+
+      <!-- Skyline: zona bancaria -->
+      <g fill="#3a2fa0">
+        <rect x="20" y="430" width="60" height="230"/><rect x="95" y="380" width="52" height="280" fill="#4a2ea8"/>
+        <path d="M170 660V500l12-10V380l14-8V300l18-10 18 10v72l14 8v110l12 10v170z" fill="#2b4fb8"/>
+        <rect x="260" y="400" width="56" height="260"/>
+        <path d="M340 660V330Q430 430 395 660z" fill="#1f8fb0"/>
+        <rect x="410" y="440" width="50" height="220"/><rect x="475" y="360" width="58" height="300" fill="#4a2ea8"/>
+        <rect x="548" y="470" width="46" height="190"/><rect x="610" y="410" width="60" height="250" fill="#2b4fb8"/>
+        <rect x="690" y="480" width="48" height="180"/><rect x="750" y="430" width="54" height="230" fill="#4a2ea8"/>
+      </g>
+
+      <!-- Neón y hologramas -->
+      <g fill="none" stroke-width="3"><path d="M30 440v200M105 390v250M270 410v230M420 450v190M485 370v280M620 420v220M760 440v200" stroke="#2ff3ff"/><path d="M80 440v200M147 390v250M316 410v230M533 370v280M670 420v220" stroke="#ff3da6" opacity=".8"/></g>
+      <rect x="262" y="445" width="52" height="26" fill="#0b0830" stroke="#ff3da6" stroke-width="2"/><text x="288" y="464" class="sign" fill="#ff3da6">PTY</text>
+      <path d="M930 530v38M990 530v38" stroke="#2ff3ff" stroke-width="3"/><rect x="880" y="430" width="170" height="100" fill="#2ff3ff" fill-opacity=".15" stroke="#2ff3ff" stroke-width="3"/>
+      <text x="965" y="470" class="sign" fill="#2ff3ff">ACADEMIA</text><text x="965" y="508" class="sign big" fill="#ffe14a">ROBO-B</text>
+
+      <!-- Suelo, calle y diablo rojo -->
+      <rect y="745" width="1600" height="155" fill="#14103d"/>
+      <rect y="772" width="1600" height="54" fill="#231a5e"/>
+      <path d="M0 799H1600" stroke="#2ff3ff" stroke-width="5" stroke-dasharray="40 30"/>
+      <g><rect x="290" y="762" width="150" height="50" rx="4" fill="#ff3da6"/><g fill="#2ff3ff"><rect x="302" y="770" width="30" height="18" rx="3"/><rect x="342" y="770" width="30" height="18" rx="3"/><rect x="382" y="770" width="30" height="18" rx="3"/></g><rect x="290" y="796" width="150" height="7" fill="#ffd23f"/><circle cx="332" cy="813" r="11" fill="#0b0830"/><circle cx="400" cy="813" r="11" fill="#0b0830"/></g>
+      <use href="#palm" x="20" y="618" width="90" height="144"/><use href="#palm" x="690" y="622" width="90" height="144"/><use href="#palm" x="1420" y="618" width="90" height="144"/><use href="#palm" x="1520" y="630" width="70" height="112"/>
+
+      <!-- 1. Centro de Patrones -->
+      <g class="bld" data-z="0" tabindex="0" role="button" aria-label="Centro de Patrones">
+        <rect x="120" y="725" width="160" height="22" rx="4" fill="#2a1f7a"/>
+        <rect x="140" y="470" width="120" height="260" rx="6" fill="#5b3fd6"/><rect x="140" y="470" width="120" height="260" fill="url(#w)"/>
+        <path d="M140 560h120M140 620h120M140 680h120" stroke="#ffd23f" stroke-width="7" stroke-dasharray="20 20"/>
+        <path d="M140 470a60 60 0 0 1 120 0z" fill="#2a1f7a"/><path d="M200 410V385" stroke="#2a1f7a" stroke-width="5"/><circle cx="200" cy="382" r="8" fill="#ffd23f"/>
+        <g class="tag"><rect x="85" y="325" width="230" height="44" rx="8"/><text x="200" y="354">Centro de Patrones</text></g>
+      </g>
+
+      <!-- 2. Laboratorio de Rompecabezas (inspirado en el Biomuseo) -->
+      <g class="bld" data-z="1" tabindex="0" role="button" aria-label="Laboratorio de Rompecabezas">
+        <rect x="400" y="650" width="240" height="97" rx="4" fill="#26206e"/><rect x="500" y="690" width="40" height="57" rx="4" fill="#0b0830"/>
+        <polygon points="395,650 440,575 500,650" fill="#ff3da6"/><polygon points="450,650 520,555 560,650" fill="#ffd23f"/>
+        <polygon points="520,650 590,590 645,650" fill="#2ff3ff"/><polygon points="440,650 485,600 530,650" fill="#19c58a"/>
+        <circle cx="425" cy="705" r="13" fill="#ffd23f"/><circle cx="610" cy="705" r="13" fill="#2ff3ff"/>
+        <g class="tag"><rect x="355" y="495" width="330" height="44" rx="8"/><text x="520" y="524">Laboratorio de Rompecabezas</text></g>
+      </g>
+
+      <!-- 3. Ciudad Laberinto -->
+      <g class="bld" data-z="2" tabindex="0" role="button" aria-label="Ciudad Laberinto">
+        <rect x="720" y="640" width="280" height="107" rx="4" fill="#1fa8c9"/><rect x="770" y="585" width="180" height="58" fill="#2f7fe0"/><rect x="770" y="585" width="180" height="58" fill="url(#w)"/>
+        <rect x="765" y="575" width="190" height="12" rx="4" fill="#19c58a"/>
+        <path d="M740 665H900V700H800V685H860M960 665V725H920M740 725H880" fill="none" stroke="#2ff3ff" stroke-width="7" stroke-linecap="round" opacity=".85"/>
+        <g class="tag"><rect x="755" y="515" width="210" height="44" rx="8"/><text x="860" y="544">Ciudad Laberinto</text></g>
+      </g>
+
+      <!-- 4. Torre de los Desafíos -->
+      <g class="bld" data-z="3" tabindex="0" role="button" aria-label="Torre de los Desafíos">
+        <rect x="1130" y="335" width="100" height="412" fill="#c93bd6"/><rect x="1130" y="335" width="100" height="412" fill="url(#w)"/>
+        <polygon points="1130,335 1180,275 1230,335" fill="#7b24a8"/>
+        <path d="M1130 470L1230 440M1130 580L1230 550M1130 690L1230 660" stroke="#ffd23f" stroke-width="8"/>
+        <path d="M1180 275V205" stroke="#27306b" stroke-width="4"/>
+        <rect x="1180" y="205" width="26" height="16" fill="#fff"/><rect x="1206" y="205" width="26" height="16" fill="#e0393e"/><rect x="1180" y="221" width="26" height="16" fill="#2f5bd6"/><rect x="1206" y="221" width="26" height="16" fill="#fff"/>
+        <g class="tag"><rect x="1050" y="125" width="260" height="44" rx="8"/><text x="1180" y="154">Torre de los Desafíos</text></g>
+      </g>
+    </svg>
+
+    <header class="top">
+      <a class="mini-logo" href="/index.html" aria-label="Volver a la bienvenida"><span>Academia</span><b>Robo-B</b></a>
+      <div class="star-chip" title="Estrellas ganadas">⭐ <b id="starTotal">0</b></div>
+    </header>
+
+    <aside class="robo-card">
+      <div class="bubble" id="bubble" aria-live="polite"></div>
+      <button class="robo-btn" id="roboBtn" aria-label="Hablar con Robo-B"><span id="robo" class="robo-slot"></span></button>
+      <div class="name-tag"><b>Robo-B</b><span>Tu amigo explorador</span></div>
+    </aside>
+
+    <div class="play"><button class="btn btn-main" id="playBtn">¡Jugar!</button></div>
+
+    <section class="city-hud" aria-label="Progreso y recompensas">
+      <p class="progress-text"><b id="pStars">0</b> estrellas · Nivel <b id="pLevel"></b></p>
+      <div class="bar"><i id="pBar"></i></div>
+      <small id="pNext"></small>
+      <div id="badges" class="badges"></div>
+    </section>
+    <!-- Pantalla de misión: botón para volver al menú principal -->
+    <section class="mission-screen" id="missionScreen" hidden aria-label="Misión">
+      <a class="btn-back" id="backBtn" href="/html/menu.html">⬅ Volver al menú principal</a>
+      <div class="mission-view"><h2 id="missionName"></h2><p>¡Esta misión estará lista muy pronto!</p></div>
+    </section>
+  </main>
+
+  <script src="/JS/script.js"></script>
+</body>
+</html>

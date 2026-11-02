@@ -1,0 +1,287 @@
+/* ==========================================================
+   ACADEMIA ROBO-B · Estilos
+   1. Variables  2. Base  3. Fondo  4. Bienvenida  5. Botones
+   6. Menú  7. Robo-B  8. Vistas (mundos, misiones, progreso)
+   9. Adaptación
+   ========================================================== */
+
+/* 1. VARIABLES */
+:root {
+  --ink: #1f2a44;
+  --ink-soft: #5b6784;
+  --bg: #f4f7fc;
+  --surface: #ffffff;
+  --line: #dde4f0;
+
+  --blue: #2f5bd6;    --blue-d: #2449b3;
+  --violet: #7656d6;
+  --green: #1fa971;   --green-d: #178559;
+  --sun: #f5b72b;
+  --coral: #e8693f;
+
+  --pastel-blue: #dbe8ff;
+  --pastel-violet: #e9e2fb;
+  --pastel-mint: #d8f3e7;
+  --pastel-peach: #fde3d7;
+  --pastel-lemon: #fdf0c8;
+
+  --font: 'Nunito Sans', 'Nunito', Arial, Helvetica, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(31, 42, 68, .08);
+  --shadow-hover: 0 4px 12px rgba(31, 42, 68, .12);
+}
+
+/* 2. BASE */
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; }
+body {
+  margin: 0; min-height: 100%;
+  font-family: var(--font); font-weight: 600; font-size: 17px; line-height: 1.45; color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+h1, h2, h3 { font-family: var(--font); font-weight: 800; margin: 0; line-height: 1.15; }
+button { font-family: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* 3. FONDO (formas planas y discretas, sin movimiento) */
+.bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.blob { position: absolute; border-radius: 50%; }
+.b1 { width: 320px; height: 320px; left: -120px; top: -120px; background: var(--pastel-violet); }
+.b2 { width: 240px; height: 240px; right: -90px; top: 38%; background: var(--pastel-mint); }
+.b3 { width: 300px; height: 300px; left: 35%; bottom: -190px; background: var(--pastel-peach); }
+.cloud { position: absolute; width: 120px; height: 36px; background: #fff; border-radius: 18px; opacity: .8; }
+.cloud::before, .cloud::after { content: none; }
+.c1 { top: 14%; right: 14%; }
+.c2 { top: 70%; left: 8%; }
+
+/* 4. BIENVENIDA */
+.welcome {
+  position: fixed; inset: 0; z-index: 10;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  padding: 24px; text-align: center;
+}
+.welcome.out { display: none; }
+.logo { display: flex; flex-direction: column; align-items: center; }
+.logo-top {
+  display: inline-block; background: var(--violet); color: #fff;
+  font: 700 clamp(16px, 2.4vw, 22px) var(--font); letter-spacing: .08em;
+  padding: 6px 18px; border-radius: var(--radius-sm);
+}
+.logo-main { font-size: clamp(56px, 11vw, 110px); line-height: 1; margin-top: 10px; color: var(--blue); }
+.welcome-robo { width: clamp(150px, 26vh, 240px); }
+.slogan { font: 700 clamp(20px, 3vw, 30px) var(--font); margin: 0; color: var(--ink); }
+
+/* 5. BOTONES */
+.btn {
+  border: 0; border-radius: 10px; min-height: 56px; padding: 12px 36px;
+  font: 800 clamp(20px, 2.4vw, 24px) var(--font); color: #fff;
+  transition: background-color .2s, box-shadow .2s;
+}
+.btn:hover { box-shadow: var(--shadow-hover); }
+.btn-main { background: var(--blue); min-height: 64px; padding: 14px 52px; }
+.btn-main:hover { background: var(--blue-d); }
+.btn-go { background: var(--green); min-height: 48px; font-size: 18px; padding: 8px 24px; }
+.btn-go:hover { background: var(--green-d); }
+
+/* 6. MENÚ SUPERIOR */
+.hub { display: none; position: relative; z-index: 1; min-height: 100vh; padding: 20px clamp(16px, 4vw, 48px) 40px; }
+.hub.on { display: block; }
+.top { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: 0 auto 26px; }
+.mini-logo { display: flex; flex-direction: column; line-height: 1.05; text-decoration: none; }
+.mini-logo span { font-size: 13px; letter-spacing: .1em; color: var(--violet); font-weight: 800; }
+.mini-logo b { font-size: 32px; font-weight: 800; color: var(--blue); }
+.menu { display: flex; gap: 10px; flex-wrap: wrap; }
+.menu-btn {
+  display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 22px;
+  border: 2px solid var(--line); border-radius: 10px; background: var(--surface); font: 800 18px var(--font);
+  transition: background-color .2s, border-color .2s;
+}
+.menu-btn span { font-size: 24px; }
+.menu-btn:hover { border-color: var(--blue); background: var(--pastel-blue); }
+.menu-btn.is-on { background: var(--blue); border-color: var(--blue); color: #fff; }
+.star-chip { background: var(--pastel-lemon); border: 2px solid #f1dc9a; border-radius: 10px; padding: 8px 18px; font: 800 24px var(--font); }
+
+.layout { display: grid; grid-template-columns: 320px 1fr; gap: 28px; max-width: 1200px; margin: 0 auto; align-items: start; }
+
+/* 7. ROBO-B */
+.robo-card {
+  position: sticky; top: 20px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 20px; box-shadow: var(--shadow);
+}
+.bubble {
+  position: relative; background: var(--pastel-blue); border-radius: var(--radius); padding: 14px 18px;
+  font: 700 18px/1.35 var(--font); text-align: center; min-height: 92px; display: grid; place-items: center; width: 100%;
+}
+.bubble::after {
+  content: ""; position: absolute; left: 50%; bottom: -10px; margin-left: -10px;
+  border: 10px solid transparent; border-bottom: 0; border-top-color: var(--pastel-blue);
+}
+.robo-btn { border: 0; background: none; width: 180px; padding: 0; }
+.robo-slot svg,
+.robo-slot img { width: 100%; height: auto; display: block; }
+.name-tag { text-align: center; display: flex; flex-direction: column; }
+.name-tag b { font: 800 24px var(--font); color: var(--blue); }
+.name-tag span { color: var(--ink-soft); font-size: 15px; }
+
+/* 8. VISTAS */
+.views { min-width: 0; }
+.view { display: none; }
+.view.is-on { display: block; }
+.view h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 20px; }
+.view h3 { font-size: 24px; margin: 28px 0 14px; }
+
+/* Mundos */
+.worlds { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.world {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+  transition: box-shadow .2s, border-color .2s;
+}
+.world:hover { box-shadow: var(--shadow-hover); border-color: #b9c6e4; }
+.art { position: relative; height: 130px; display: grid; place-items: center; font-size: 64px; background: var(--c); }
+.world.locked .art { filter: grayscale(.75); }
+.lock { position: absolute; right: 12px; bottom: 8px; font-size: 28px; }
+.w-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+.w-body h3 { margin: 0; font-size: 21px; }
+.w-body p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+.w-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; font: 800 18px var(--font); }
+
+/* Misiones */
+.missions { display: flex; flex-direction: column; gap: 14px; }
+.mission {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 18px 12px 12px; box-shadow: var(--shadow);
+  transition: box-shadow .2s, border-color .2s;
+}
+.mission:hover { box-shadow: var(--shadow-hover); border-color: #b9c6e4; }
+.mission.locked { opacity: .65; }
+.m-art { width: 68px; height: 68px; border-radius: var(--radius-sm); display: grid; place-items: center; font-size: 36px; background: var(--c); }
+.m-info b { display: block; font: 800 clamp(18px, 2.2vw, 22px) var(--font); }
+.m-stars { font-size: 20px; letter-spacing: 2px; }
+.m-lock { color: var(--ink-soft); font-weight: 800; font-size: 16px; }
+
+/* Progreso */
+.progress-card {
+  display: flex; align-items: center; gap: 22px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--shadow);
+}
+.big-star { font-size: 60px; line-height: 1; }
+.progress-info { flex: 1; }
+.progress-text { margin: 0 0 10px; font: 700 clamp(18px, 2.4vw, 24px) var(--font); }
+.bar { height: 16px; border-radius: 8px; background: var(--line); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; border-radius: 8px; background: var(--green); transition: width .4s; }
+.progress-info small { display: block; margin-top: 8px; color: var(--ink-soft); font-size: 15px; }
+.badges { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.badge {
+  text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 10px;
+  font: 800 16px var(--font); box-shadow: var(--shadow); transition: box-shadow .2s, border-color .2s;
+}
+.badge:hover { box-shadow: var(--shadow-hover); border-color: #b9c6e4; }
+.badge i { display: grid; place-items: center; width: 68px; height: 68px; margin: 0 auto 8px; border-radius: var(--radius-sm); font-size: 36px; font-style: normal; background: var(--pastel-lemon); }
+.badge.off { opacity: .7; }
+.badge.off i { background: var(--line); filter: grayscale(1); }
+
+/* 9. ADAPTACIÓN */
+@media (max-width: 880px) {
+  .layout { grid-template-columns: 1fr; }
+  .robo-card { position: static; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .bubble { flex: 1 1 260px; width: auto; }
+  .bubble::after { display: none; }
+  .robo-btn { width: 120px; }
+  .top { justify-content: center; }
+}
+@media (max-width: 520px) {
+  .mission { grid-template-columns: auto 1fr; }
+  .mission .btn, .mission .m-lock { grid-column: 1 / -1; justify-self: stretch; text-align: center; }
+  .progress-card { flex-direction: column; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* ==========================================================
+   10. MENÚ PRINCIPAL: CIUDAD DE PANAMÁ FUTURISTA (.city)
+   ========================================================== */
+.hub.city { position: fixed; inset: 0; min-height: 0; padding: 0; overflow: hidden; background: #bfe6ff; }
+.scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; font-family: var(--font); }
+.bld { cursor: pointer; outline: none; transition: filter .2s; }
+.bld:hover, .bld:focus-visible, .bld.sel { filter: brightness(1.1) saturate(1.1); }
+.bld .tag { opacity: 0; transition: opacity .2s; pointer-events: none; }
+.bld .tag rect { fill: #fff; stroke: var(--line); stroke-width: 2; }
+.bld .tag text { fill: var(--ink); font-size: 22px; font-weight: 800; text-anchor: middle; }
+.bld.sel .tag, .bld:focus-visible .tag { opacity: 1; }
+
+.city .top { position: absolute; top: 0; left: 0; right: 0; max-width: none; margin: 0; padding: 16px 24px; z-index: 2; pointer-events: none; }
+.city .top > * { pointer-events: auto; }
+.city .mini-logo { background: var(--surface); border-radius: 10px; padding: 8px 16px; box-shadow: var(--shadow); }
+.city .star-chip { box-shadow: var(--shadow); }
+
+.city .robo-card { position: absolute; top: auto; left: 20px; bottom: 14px; z-index: 2; width: 230px; padding: 0; background: none; border: 0; box-shadow: none; gap: 8px; }
+.city .bubble { background: var(--surface); box-shadow: var(--shadow); min-height: 0; font-size: 16px; padding: 10px 14px; }
+.city .bubble::after { border-top-color: var(--surface); }
+.city .robo-btn { width: 140px; }
+.city .name-tag { background: var(--surface); border-radius: 8px; padding: 2px 12px; box-shadow: var(--shadow); }
+.city .name-tag span { display: none; }
+
+.city .play { position: absolute; left: 0; right: 0; bottom: 22px; z-index: 2; display: flex; justify-content: center; pointer-events: none; }
+.city .play .btn { pointer-events: auto; box-shadow: var(--shadow-hover); }
+
+.city-hud { position: absolute; right: 20px; bottom: 16px; z-index: 2; width: min(340px, 40vw); padding: 12px 14px; background: rgba(255, 255, 255, .94); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.city-hud .progress-text { font-size: 16px; margin-bottom: 6px; }
+.city-hud .bar { height: 10px; }
+.city-hud small { display: block; margin-top: 6px; font-size: 13px; color: var(--ink-soft); }
+.city-hud .badges { grid-template-columns: repeat(6, 1fr); gap: 6px; margin-top: 8px; }
+.city-hud .badge { padding: 4px 0; font-size: 0; box-shadow: none; }
+.city-hud .badge i { width: 38px; height: 38px; margin: 0 auto; font-size: 20px; }
+
+@media (max-width: 900px) {
+  .city .robo-card { width: 170px; }
+  .city .robo-btn { width: 100px; }
+  .city-hud { top: 76px; bottom: auto; right: 12px; width: 230px; }
+  .city-hud .badges { display: none; }
+}
+
+/* ==========================================================
+   11. ESTÉTICA CYBERPUNK (neón: cian, rosa, amarillo)
+   ========================================================== */
+.hub.city { background: #1a1147; }
+.sign { font-size: 15px; font-weight: 800; text-anchor: middle; font-family: var(--font); }
+.sign.big { font-size: 26px; }
+.bld .tag rect { fill: #0b0830; stroke: #2ff3ff; }
+.bld .tag text { fill: #2ff3ff; }
+.bld:hover, .bld:focus-visible, .bld.sel { filter: brightness(1.25) saturate(1.1); }
+.city .mini-logo { background: #0b0830; border: 2px solid #2ff3ff; border-radius: 4px; box-shadow: none; }
+.city .mini-logo span { color: #ff3da6; }
+.city .mini-logo b { color: #2ff3ff; }
+.city .star-chip { background: #0b0830; border: 2px solid #ffe14a; color: #ffe14a; border-radius: 4px; box-shadow: none; }
+.city .bubble { background: #0b0830; color: #e8f6ff; border: 2px solid #2ff3ff; border-radius: 4px; box-shadow: none; }
+.city .bubble::after { border-top-color: #2ff3ff; }
+.city .name-tag { background: #0b0830; border: 2px solid #ff3da6; border-radius: 4px; box-shadow: none; }
+.city .name-tag b { color: #ff3da6; }
+.city .play .btn, body:has(.welcome) .btn-main { background: #ffe14a; color: #0b0830; border-radius: 4px; box-shadow: none; transition: background-color .2s, color .2s; }
+.city .play .btn:hover, body:has(.welcome) .btn-main:hover { background: #ff3da6; color: #fff; }
+.city-hud { background: #0b0830; color: #e8f6ff; border: 2px solid #2ff3ff; border-radius: 4px; box-shadow: none; }
+.city-hud small { color: #9fb0e8; }
+.city-hud .bar { background: #2a1f6e; border-radius: 2px; }
+.city-hud .bar i { background: #2ff3ff; border-radius: 2px; }
+.city-hud .badge { background: none; border: 0; }
+.city-hud .badge i { background: #2a1f6e; border-radius: 4px; }
+.city-hud .badge.off i { background: #1a1650; filter: grayscale(1) brightness(.7); }
+
+/* Botón «Volver al menú principal» (reutilizable en cualquier pantalla de misión) */
+.btn-back { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 8px 20px; background: #0b0830; color: #2ff3ff; border: 2px solid #2ff3ff; border-radius: 4px; font: 800 18px var(--font); text-decoration: none; transition: background-color .2s, color .2s; }
+.btn-back:hover, .btn-back:focus-visible { background: #2ff3ff; color: #0b0830; }
+.mission-screen { position: absolute; inset: 0; z-index: 5; background: #1a1147; display: flex; align-items: center; justify-content: center; text-align: center; padding: 90px 24px 24px; }
+.mission-screen[hidden] { display: none; }
+.mission-screen .btn-back { position: absolute; top: 16px; left: 20px; }
+.mission-view { border: 2px solid #ff3da6; border-radius: 4px; background: #0b0830; padding: 32px 40px; max-width: 560px; }
+.mission-view h2 { color: #2ff3ff; font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+.mission-view p { margin: 0; color: #e8f6ff; font-size: 20px; }
+
+/* Página de bienvenida en el mismo estilo */
+body:has(.welcome) { background: #1a1147; }
+body:has(.welcome) .blob, body:has(.welcome) .cloud { background: #2a1f7a; }
+body:has(.welcome) .logo-top { background: #ff3da6; border-radius: 4px; }
+body:has(.welcome) .logo-main { color: #2ff3ff; }
+body:has(.welcome) .slogan { color: #e8f6ff; }
