@@ -1,0 +1,371 @@
+
+/*
+  APRENDAMOS A PROGRAMAR
+  Estilos de la pantalla principal.
+
+  Paleta:
+  Turquesa: fondo principal.
+  Morado: botones y detalles.
+  Blanco: textos.
+*/
+
+:root {
+  color-scheme: dark;
+
+  --turquoise: #20c9c3;
+  --purple: #7628c9;
+  --purple-hover: #913de0;
+  --purple-dark: #5c1da5;
+  --white: #ffffff;
+
+  --font-display: "Orbitron", "Trebuchet MS", sans-serif;
+  --font-ui: "Nunito", "Trebuchet MS", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100svh;
+  overflow: hidden;
+  background: var(--turquoise);
+  color: var(--white);
+  font-family: var(--font-ui);
+}
+
+button {
+  font: inherit;
+}
+
+/* FONDO PRINCIPAL */
+.game-home {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+
+  padding: clamp(1.25rem, 4vh, 3rem) 1.25rem;
+
+  /* Color turquesa completamente sólido. */
+  background: var(--turquoise);
+}
+
+/* ELIMINAR ILUMINACIONES AMBIENTALES */
+.ambient {
+  display: none;
+}
+
+/* CUADRÍCULA DECORATIVA */
+.grid-floor {
+  display: none;
+}
+
+/* LÍNEAS DECORATIVAS */
+.scanlines {
+  display: none;
+}
+
+/* BOTÓN DE CONFIGURACIÓN */
+.settings-button {
+  position: absolute;
+  z-index: 5;
+
+  top: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
+
+  display: grid;
+  width: 3.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+
+  border: 2px solid var(--white);
+  border-radius: 1rem;
+
+  color: var(--white);
+  background: var(--purple);
+
+  box-shadow: 0 4px 0 var(--purple-dark);
+
+  cursor: default;
+}
+
+.settings-symbol {
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+/* CONTENEDOR DEL CONTENIDO */
+.home-content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  width: min(100%, 48rem);
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  transform: translateY(-1vh);
+}
+
+/* TÍTULO */
+.game-title {
+  position: relative;
+  z-index: 2;
+}
+
+.title-kicker {
+  display: inline-block;
+  margin-bottom: .65rem;
+
+  color: var(--purple-dark);
+
+  font-family: var(--font-display);
+  font-size: clamp(.55rem, 1.1vw, .7rem);
+  font-weight: 700;
+  letter-spacing: .48em;
+}
+
+.game-title h1 {
+  margin: 0;
+
+  color: var(--white);
+
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 5.3vw, 3.65rem);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: -.055em;
+
+  text-shadow: 0 3px 0 var(--purple-dark);
+}
+
+/* SEGUNDA LÍNEA DEL TÍTULO */
+.game-title h1 span {
+  color: var(--purple-dark);
+  text-shadow: none;
+}
+
+/* LÍNEA DECORATIVA */
+.title-underline {
+  width: 48%;
+  height: 3px;
+  margin: 1rem auto 0;
+
+  background: var(--purple);
+
+  box-shadow: none;
+}
+
+/* ESCENARIO DE LA MASCOTA */
+.mascot-stage {
+  position: relative;
+
+  display: grid;
+  width: clamp(15rem, 37vw, 25rem);
+  aspect-ratio: 1 / .9;
+  place-items: center;
+
+  margin: clamp(.3rem, 1.5vh, 1.2rem) 0 .2rem;
+}
+
+/* AURA DE LA MASCOTA */
+.mascot-aura {
+  position: absolute;
+
+  width: 72%;
+  height: 72%;
+
+  border-radius: 50%;
+
+  /* Color sólido y semitransparente. */
+  background: rgba(118, 40, 201, .22);
+
+  filter: blur(18px);
+}
+
+/* AROS DECORATIVOS */
+.mascot-ring {
+  position: absolute;
+
+  width: 77%;
+  aspect-ratio: 1;
+
+  border: 2px solid var(--purple);
+  border-radius: 50%;
+
+  transform: rotateX(67deg) rotateZ(-14deg);
+
+  box-shadow: none;
+}
+
+.mascot-ring--inner {
+  width: 62%;
+
+  border-color: var(--white);
+
+  transform: rotateX(67deg) rotateZ(22deg);
+
+  box-shadow: none;
+}
+
+/* IMAGEN DE LA MASCOTA */
+.mascot-image {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+  width: 94%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 15px 24px rgba(0, 0, 0, .25));
+
+  animation: mascot-float 4.8s ease-in-out infinite;
+}
+
+/* BOTÓN PRINCIPAL */
+.start-button {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  width: clamp(12rem, 27vw, 17rem);
+  min-height: clamp(3.8rem, 8vh, 4.6rem);
+  place-items: center;
+  overflow: hidden;
+
+  border: 2px solid var(--white);
+  border-radius: 1rem;
+
+  color: var(--white);
+
+  /* Morado sólido. */
+  background: var(--purple);
+
+  box-shadow: 0 5px 0 var(--purple-dark);
+
+  cursor: pointer;
+
+  /* Solo cambia la apariencia, nunca la posición. */
+  transition:
+    background-color .2s ease,
+    box-shadow .2s ease;
+}
+
+/* TEXTO DEL BOTÓN */
+.start-button__label {
+  position: relative;
+  z-index: 2;
+
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 900;
+  letter-spacing: .2em;
+
+  padding-left: .2em;
+}
+
+/* ELIMINAR BRILLO MÓVIL */
+.start-button__shine {
+  display: none;
+}
+
+/* HOVER DEL BOTÓN */
+.start-button:hover {
+  background: var(--purple-hover);
+
+  box-shadow:
+    0 5px 0 var(--purple-dark),
+    0 0 18px rgba(118, 40, 201, .4);
+}
+
+/* ESTADO AL PRESIONAR */
+.start-button:active {
+  background: var(--purple-dark);
+}
+
+/* ACCESIBILIDAD */
+.start-button:focus-visible,
+.settings-button:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 5px;
+}
+
+/* ANIMACIÓN EXCLUSIVA DE LA MASCOTA */
+@keyframes mascot-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* PANTALLAS DE POCA ALTURA */
+@media (max-height: 650px) and (min-width: 600px) {
+  .home-content {
+    transform: scale(.82);
+  }
+
+  .mascot-stage {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* DISPOSITIVOS MÓVILES */
+@media (max-width: 520px) {
+  .game-home {
+    padding-inline: 1rem;
+  }
+
+  .home-content {
+    transform: translateY(0);
+  }
+
+  .game-title h1 {
+    font-size: clamp(1.55rem, 8vw, 2.35rem);
+  }
+
+  .mascot-stage {
+    width: min(76vw, 20rem);
+    margin-block: .8rem .45rem;
+  }
+
+  .start-button {
+    width: min(72vw, 17rem);
+    min-height: 3.9rem;
+  }
+
+  .settings-button {
+    width: 2.8rem;
+    border-radius: .85rem;
+  }
+}
+
+/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
