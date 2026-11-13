@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar lección | Aprendamos a programar</title>
+
+    <!-- Tipografías del videojuego -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos del selector -->
+    <link rel="stylesheet" href="css/selector.css">
+</head>
+
+<body>
+
+    <main class="selector-screen">
+
+        <!-- Botón para regresar al menú principal -->
+        <a href="index.html" class="back-button" aria-label="Regresar al menú principal">
+            &#8592;
+        </a>
+
+        <!-- Controles superiores derechos -->
+        <aside class="game-controls">
+
+            <!-- Mascota del videojuego -->
+            <button class="mascot-profile" type="button" aria-label="Mascota">
+                <img
+                    src="https://media.easy-peasy.ai/3e417982-381a-489b-a5f3-9a98c19ef88e/7e06f0fc-3f7e-4d7b-9227-d955779a7c3b.png"
+                    alt="Mascota del videojuego"
+                >
+            </button>
+
+            <!-- Configuración: preparada para el futuro -->
+            <button class="side-control" type="button" aria-label="Configuración">
+                ⚙
+            </button>
+
+            <!-- Ayuda: preparada para el futuro -->
+            <button class="side-control" type="button" aria-label="Ayuda">
+                ?
+            </button>
+
+        </aside>
+
+        <!-- Título del selector -->
+        <h1 class="selector-title">SELECCIONA UNA LECCIÓN</h1>
+
+        <!-- Selector de las cuatro lecciones -->
+        <section class="lesson-grid" aria-label="Lecciones disponibles">
+
+            <!-- LECCIÓN 1 -->
+            <article class="lesson-option">
+                <h2>LECCIÓN 1</h2>
+
+                <button class="lesson-card" type="button" data-lesson="1" aria-label="Lección 1">
+                    <img
+                        src="https://image.api.playstation.com/vulcan/ap/rnd/202409/0411/50b32c1694ea8c4db8ec40f7634f54f92c7b2c87904a6b93.jpg"
+                        alt="Escenario futurista de videojuego"
+                    >
+                </button>
+            </article>
+
+            <!-- LECCIÓN 2 -->
+            <article class="lesson-option">
+                <h2>LECCIÓN 2</h2>
+
+                <button class="lesson-card" type="button" data-lesson="2" aria-label="Lección 2">
+                    <img
+                        src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2161050/ss_dd5909490314c96c6bf29c730e064e886af99439.1920x1080.jpg?t=1730140674"
+                        alt="Mundo tridimensional de videojuego"
+                    >
+                </button>
+            </article>
+
+            <!-- LECCIÓN 3 -->
+            <article class="lesson-option">
+                <h2>LECCIÓN 3</h2>
+
+                <button class="lesson-card" type="button" data-lesson="3" aria-label="Lección 3">
+                    <img
+                        src="https://untoldtales.games/app/uploads/2023/08/BOTI-Screenshot_5-FHD.jpg"
+                        alt="Personajes robóticos de videojuego"
+                    >
+                </button>
+            </article>
+
+            <!-- LECCIÓN 4 -->
+            <article class="lesson-option">
+                <h2>LECCIÓN 4</h2>
+
+                <button class="lesson-card" type="button" data-lesson="4" aria-label="Lección 4">
+                    <img
+                        src="https://img.itch.zone/aW1hZ2UvNjQwMDE3LzM0MzEyMDYuanBn/original/oY7awR.jpg"
+                        alt="Nivel de videojuego futurista"
+                    >
+                </button>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- JavaScript del selector -->
+    <script src="js/selector.js"></script>
+
+</body>
+</html>
