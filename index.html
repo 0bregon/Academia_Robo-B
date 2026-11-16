@@ -1,54 +1,110 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090817">
-  <meta name="description" content="Aprendamos a programar: videojuego educativo.">
-  <title>Aprendamos a programar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#090817">
+    <meta name="description" content="Aprendamos a programar: videojuego educativo.">
+
+    <title>Aprendamos a programar | Academia Robo-B</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Nunito:wght@600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- HOJA DE ESTILOS -->
+    <link rel="stylesheet" href="./css/styles.css">
+
 </head>
+
 <body>
-  <main class="game-home" aria-label="Pantalla principal del videojuego">
-    <!-- La decoración ambiental está hecha con CSS para evitar gráficos vectoriales genéricos. -->
-    <div class="ambient ambient--left" aria-hidden="true"></div>
-    <div class="ambient ambient--right" aria-hidden="true"></div>
-    <div class="grid-floor" aria-hidden="true"></div>
-    <div class="scanlines" aria-hidden="true"></div>
 
-    <!-- El control queda visible pero sin acción hasta implementar la configuración. -->
-    <button class="settings-button" type="button" aria-label="Configuración" aria-disabled="true" title="Configuración">
-      <span class="settings-symbol" aria-hidden="true">⚙</span>
-    </button>
+    <main class="game-home" aria-label="Pantalla principal del videojuego">
 
-    <section class="home-content">
-      <header class="game-title">
-        <span class="title-kicker" aria-hidden="true">Mariel Obregón</span>
-        <h1>APRENDAMOS<br><span>A PROGRAMAR</span></h1>
-        <div class="title-underline" aria-hidden="true"></div>
-      </header>
+        <!-- DECORACIÓN AMBIENTAL -->
+        <div class="ambient ambient--left" aria-hidden="true"></div>
+        <div class="ambient ambient--right" aria-hidden="true"></div>
+        <div class="grid-floor" aria-hidden="true"></div>
+        <div class="scanlines" aria-hidden="true"></div>
 
-      <!-- Cambia mascot.webp por tu archivo definitivo cuando esté disponible. -->
-      <div class="mascot-stage">
-        <div class="mascot-aura" aria-hidden="true"></div>
-        <div class="mascot-ring mascot-ring--outer" aria-hidden="true"></div>
-        <div class="mascot-ring mascot-ring--inner" aria-hidden="true"></div>
-        <img
-          class="mascot-image"
-          src="/assets/robo-holaaa.gif"
-          alt="Mascota Robo-B"
-          onerror="this.onerror=null;this.src='https://loved-vacation-8dd163c1e3.media.strapiapp.com/1b475c16540d_agent_b063fc1885.webp';"
-        >
-      </div>
 
-        <a href="laboratorios.html" class="start-button" id="startButton">
-            <span class="start-button__label">INICIO</span>
-        </a>
-    </section>
-  </main>
-  <script src="js/main.js"></script>
+        <!-- CONFIGURACIÓN -->
+        <button
+            class="settings-button"
+            type="button"
+            aria-label="Configuración"
+            aria-disabled="true"
+            title="Configuración">
+
+            <span class="settings-symbol" aria-hidden="true">⚙</span>
+
+        </button>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="home-content">
+
+            <!-- TÍTULO -->
+            <header class="game-title">
+
+                <span class="title-kicker" aria-hidden="true">
+                    Mariel Obregón
+                </span>
+
+                <h1>
+                    APRENDAMOS
+                    <br>
+                    <span>A PROGRAMAR</span>
+                </h1>
+
+                <div class="title-underline" aria-hidden="true"></div>
+
+            </header>
+
+
+            <!-- MASCOTA ROBO-B -->
+            <div class="mascot-stage">
+
+                <div class="mascot-aura" aria-hidden="true"></div>
+
+                <div class="mascot-ring mascot-ring--outer" aria-hidden="true"></div>
+
+                <div class="mascot-ring mascot-ring--inner" aria-hidden="true"></div>
+
+                <img
+                    class="mascot-image"
+                    src="./assets/robo-holaaa.gif"
+                    alt="Robo-B">
+
+            </div>
+
+
+            <!-- BOTÓN DE INICIO -->
+            <a
+                href="./laboratorios.html"
+                class="start-button"
+                id="startButton">
+
+                <span class="start-button__label">
+                    INICIO
+                </span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="./js/main.js"></script>
+
 </body>
 </html>
