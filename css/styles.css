@@ -1,371 +1,888 @@
 
-/*
-  APRENDAMOS A PROGRAMAR
-  Estilos de la pantalla principal.
+/* =========================================
+   ACADEMIA ROBO-B
+   HOJA DE ESTILOS GENERAL
+========================================= */
 
-  Paleta:
-  Turquesa: fondo principal.
-  Morado: botones y detalles.
-  Blanco: textos.
-*/
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN GLOBAL
+========================================= */
 
 :root {
-  color-scheme: dark;
+    color-scheme: dark;
 
-  --turquoise: #20c9c3;
-  --purple: #7628c9;
-  --purple-hover: #913de0;
-  --purple-dark: #5c1da5;
-  --white: #ffffff;
+    /* Paleta principal */
+    --turquoise: #20c9c3;
+    --purple: #7628c9;
+    --purple-hover: #913de0;
+    --purple-dark: #5c1da5;
+    --white: #ffffff;
 
-  --font-display: "Orbitron", "Trebuchet MS", sans-serif;
-  --font-ui: "Nunito", "Trebuchet MS", sans-serif;
+    /* Paleta del selector y laboratorios */
+    --turquesa: #35d6d0;
+    --morado: #7546c8;
+    --morado-hover: #6034b0;
+    --blanco: #fff;
+    --sombra: #4d2990;
+
+    /* Tipografías */
+    --font-display: "Orbitron", "Trebuchet MS", sans-serif;
+    --font-ui: "Nunito", "Trebuchet MS", sans-serif;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  width: 100%;
-  min-width: 320px;
-  min-height: 100%;
-  margin: 0;
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    margin: 0;
 }
 
 body {
-  min-height: 100svh;
-  overflow: hidden;
-  background: var(--turquoise);
-  color: var(--white);
-  font-family: var(--font-ui);
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--turquoise);
+    color: var(--white);
+    font-family: var(--font-ui);
 }
 
 button {
-  font: inherit;
+    font: inherit;
 }
 
-/* FONDO PRINCIPAL */
+/* =========================================
+   PANTALLA PRINCIPAL
+========================================= */
+
 .game-home {
-  position: relative;
-  isolation: isolate;
+    position: relative;
+    isolation: isolate;
 
-  display: grid;
-  min-height: 100svh;
-  place-items: center;
-  overflow: hidden;
+    display: grid;
+    min-height: 100svh;
+    place-items: center;
+    overflow: hidden;
 
-  padding: clamp(1.25rem, 4vh, 3rem) 1.25rem;
+    padding: clamp(1.25rem, 4vh, 3rem) 1.25rem;
 
-  /* Color turquesa completamente sólido. */
-  background: var(--turquoise);
+    background: var(--turquoise);
 }
 
-/* ELIMINAR ILUMINACIONES AMBIENTALES */
-.ambient {
-  display: none;
-}
+/* Ocultar elementos decorativos */
 
-/* CUADRÍCULA DECORATIVA */
-.grid-floor {
-  display: none;
-}
-
-/* LÍNEAS DECORATIVAS */
+.ambient,
+.grid-floor,
 .scanlines {
-  display: none;
+    display: none;
 }
 
 /* BOTÓN DE CONFIGURACIÓN */
+
 .settings-button {
-  position: absolute;
-  z-index: 5;
+    position: absolute;
+    z-index: 5;
 
-  top: clamp(1rem, 3vw, 2rem);
-  right: clamp(1rem, 3vw, 2rem);
+    top: clamp(1rem, 3vw, 2rem);
+    right: clamp(1rem, 3vw, 2rem);
 
-  display: grid;
-  width: 3.25rem;
-  aspect-ratio: 1;
-  place-items: center;
+    display: grid;
+    width: 3.25rem;
+    aspect-ratio: 1;
+    place-items: center;
 
-  border: 2px solid var(--white);
-  border-radius: 1rem;
+    border: 2px solid var(--white);
+    border-radius: 1rem;
 
-  color: var(--white);
-  background: var(--purple);
+    color: var(--white);
+    background: var(--purple);
 
-  box-shadow: 0 4px 0 var(--purple-dark);
+    box-shadow: 0 4px 0 var(--purple-dark);
 
-  cursor: default;
+    cursor: default;
 }
 
 .settings-symbol {
-  font-size: 1.55rem;
-  line-height: 1;
+    font-size: 1.55rem;
+    line-height: 1;
 }
 
-/* CONTENEDOR DEL CONTENIDO */
+/* CONTENIDO PRINCIPAL */
+
 .home-content {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 
-  display: flex;
-  width: min(100%, 48rem);
+    display: flex;
+    width: min(100%, 48rem);
 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-  text-align: center;
-  transform: translateY(-1vh);
+    text-align: center;
+    transform: translateY(-1vh);
 }
 
 /* TÍTULO */
+
 .game-title {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 .title-kicker {
-  display: inline-block;
-  margin-bottom: .65rem;
+    display: inline-block;
+    margin-bottom: .65rem;
 
-  color: var(--purple-dark);
+    color: var(--purple-dark);
 
-  font-family: var(--font-display);
-  font-size: clamp(.55rem, 1.1vw, .7rem);
-  font-weight: 700;
-  letter-spacing: .48em;
+    font-family: var(--font-display);
+    font-size: clamp(.55rem, 1.1vw, .7rem);
+    font-weight: 700;
+    letter-spacing: .48em;
 }
 
 .game-title h1 {
-  margin: 0;
+    margin: 0;
 
-  color: var(--white);
+    color: var(--white);
 
-  font-family: var(--font-display);
-  font-size: clamp(1.65rem, 5.3vw, 3.65rem);
-  font-weight: 900;
-  line-height: 1.16;
-  letter-spacing: -.055em;
+    font-family: var(--font-display);
+    font-size: clamp(1.65rem, 5.3vw, 3.65rem);
+    font-weight: 900;
+    line-height: 1.16;
+    letter-spacing: -.055em;
 
-  text-shadow: 0 3px 0 var(--purple-dark);
+    text-shadow: 0 3px 0 var(--purple-dark);
 }
 
-/* SEGUNDA LÍNEA DEL TÍTULO */
 .game-title h1 span {
-  color: var(--purple-dark);
-  text-shadow: none;
+    color: var(--purple-dark);
+    text-shadow: none;
 }
 
 /* LÍNEA DECORATIVA */
+
 .title-underline {
-  width: 48%;
-  height: 3px;
-  margin: 1rem auto 0;
+    width: 48%;
+    height: 3px;
+    margin: 1rem auto 0;
 
-  background: var(--purple);
-
-  box-shadow: none;
+    background: var(--purple);
+    box-shadow: none;
 }
 
-/* ESCENARIO DE LA MASCOTA */
+/* MASCOTA */
+
 .mascot-stage {
-  position: relative;
+    position: relative;
 
-  display: grid;
-  width: clamp(15rem, 37vw, 25rem);
-  aspect-ratio: 1 / .9;
-  place-items: center;
+    display: grid;
+    width: clamp(15rem, 37vw, 25rem);
+    aspect-ratio: 1 / .9;
+    place-items: center;
 
-  margin: clamp(.3rem, 1.5vh, 1.2rem) 0 .2rem;
+    margin: clamp(.3rem, 1.5vh, 1.2rem) 0 .2rem;
 }
 
-/* AURA DE LA MASCOTA */
 .mascot-aura {
-  position: absolute;
+    position: absolute;
 
-  width: 72%;
-  height: 72%;
+    width: 72%;
+    height: 72%;
 
-  border-radius: 50%;
+    border-radius: 50%;
+    background: rgba(118, 40, 201, .22);
 
-  /* Color sólido y semitransparente. */
-  background: rgba(118, 40, 201, .22);
-
-  filter: blur(18px);
+    filter: blur(18px);
 }
 
-/* AROS DECORATIVOS */
 .mascot-ring {
-  position: absolute;
+    position: absolute;
 
-  width: 77%;
-  aspect-ratio: 1;
+    width: 77%;
+    aspect-ratio: 1;
 
-  border: 2px solid var(--purple);
-  border-radius: 50%;
+    border: 2px solid var(--purple);
+    border-radius: 50%;
 
-  transform: rotateX(67deg) rotateZ(-14deg);
-
-  box-shadow: none;
+    transform: rotateX(67deg) rotateZ(-14deg);
+    box-shadow: none;
 }
 
 .mascot-ring--inner {
-  width: 62%;
+    width: 62%;
 
-  border-color: var(--white);
+    border-color: var(--white);
 
-  transform: rotateX(67deg) rotateZ(22deg);
-
-  box-shadow: none;
+    transform: rotateX(67deg) rotateZ(22deg);
+    box-shadow: none;
 }
 
-/* IMAGEN DE LA MASCOTA */
 .mascot-image {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 
-  display: block;
-  width: 94%;
-  height: 100%;
+    display: block;
+    width: 94%;
+    height: 100%;
 
-  object-fit: contain;
+    object-fit: contain;
 
-  filter: drop-shadow(0 15px 24px rgba(0, 0, 0, .25));
+    filter: drop-shadow(0 15px 24px rgba(0, 0, 0, .25));
 
-  animation: mascot-float 4.8s ease-in-out infinite;
+    animation: mascot-float 4.8s ease-in-out infinite;
 }
 
 /* BOTÓN PRINCIPAL */
+
 .start-button {
-  position: relative;
-  isolation: isolate;
+    position: relative;
+    isolation: isolate;
 
-  display: grid;
-  width: clamp(12rem, 27vw, 17rem);
-  min-height: clamp(3.8rem, 8vh, 4.6rem);
-  place-items: center;
-  overflow: hidden;
+    display: grid;
+    width: clamp(12rem, 27vw, 17rem);
+    min-height: clamp(3.8rem, 8vh, 4.6rem);
+    place-items: center;
+    overflow: hidden;
 
-  border: 2px solid var(--white);
-  border-radius: 1rem;
+    border: 2px solid var(--white);
+    border-radius: 1rem;
 
-  color: var(--white);
+    color: var(--white);
+    background: var(--purple);
 
-  /* Morado sólido. */
-  background: var(--purple);
+    box-shadow: 0 5px 0 var(--purple-dark);
 
-  box-shadow: 0 5px 0 var(--purple-dark);
+    cursor: pointer;
 
-  cursor: pointer;
-
-  /* Solo cambia la apariencia, nunca la posición. */
-  transition:
-    background-color .2s ease,
-    box-shadow .2s ease;
+    transition:
+        background-color .2s ease,
+        box-shadow .2s ease;
 }
 
-/* TEXTO DEL BOTÓN */
 .start-button__label {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 900;
-  letter-spacing: .2em;
+    padding-left: .2em;
 
-  padding-left: .2em;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 900;
+    letter-spacing: .2em;
 }
 
-/* ELIMINAR BRILLO MÓVIL */
 .start-button__shine {
-  display: none;
+    display: none;
 }
 
-/* HOVER DEL BOTÓN */
 .start-button:hover {
-  background: var(--purple-hover);
+    background: var(--purple-hover);
 
-  box-shadow:
-    0 5px 0 var(--purple-dark),
-    0 0 18px rgba(118, 40, 201, .4);
+    box-shadow:
+        0 5px 0 var(--purple-dark),
+        0 0 18px rgba(118, 40, 201, .4);
 }
 
-/* ESTADO AL PRESIONAR */
 .start-button:active {
-  background: var(--purple-dark);
+    background: var(--purple-dark);
 }
 
-/* ACCESIBILIDAD */
 .start-button:focus-visible,
 .settings-button:focus-visible {
-  outline: 3px solid var(--white);
-  outline-offset: 5px;
+    outline: 3px solid var(--white);
+    outline-offset: 5px;
 }
 
-/* ANIMACIÓN EXCLUSIVA DE LA MASCOTA */
+/* ANIMACIÓN DE LA MASCOTA */
+
 @keyframes mascot-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
+    0%, 100% {
+        transform: translateY(0);
+    }
 
-  50% {
-    transform: translateY(-9px);
-  }
+    50% {
+        transform: translateY(-9px);
+    }
 }
 
-/* PANTALLAS DE POCA ALTURA */
+/* =========================================
+   SELECTOR DE LECCIONES ANTERIOR
+========================================= */
+
+.selector-screen {
+    position: relative;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+/* BOTÓN REGRESAR */
+
+.back-button {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--morado);
+    color: var(--blanco);
+    border-radius: 12px;
+
+    text-decoration: none;
+    font-size: 28px;
+}
+
+/* CONTROLES LATERALES */
+
+.game-controls {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mascot-profile,
+.side-control {
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 15px;
+    background-color: var(--morado);
+
+    cursor: pointer;
+}
+
+.mascot-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.side-control {
+    color: var(--blanco);
+    font-size: 25px;
+}
+
+/* TÍTULO */
+
+.selector-title {
+    margin: 75px 0 35px;
+
+    text-align: center;
+    font-family: var(--font-display);
+    color: var(--blanco);
+    font-size: 30px;
+}
+
+/* CUADRÍCULA DE LECCIONES */
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.lesson-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.lesson-option h2 {
+    color: var(--blanco);
+    font-family: var(--font-display);
+    font-size: 18px;
+}
+
+/* CAJAS DE LECCIONES */
+
+.lesson-card {
+    width: 90%;
+    height: 175px;
+    padding: 0;
+
+    display: block;
+
+    background-color: var(--blanco);
+    border: 5px solid var(--morado);
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 6px 0 var(--sombra);
+
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.lesson-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lesson-card:hover {
+    border-color: var(--morado-hover);
+}
+
+/* =========================================
+   MAPA DE NIVELES - LABORATORIO 1
+========================================= */
+
+/* PANTALLA */
+
+.lab1-screen {
+    min-height: 100vh;
+    padding: 25px 20px 60px;
+    background-color: var(--turquesa);
+}
+
+/* ENCABEZADO */
+
+.lab1-header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+}
+
+.lab1-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--morado);
+    color: white;
+
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.lab1-heading {
+    text-align: center;
+    color: white;
+}
+
+.lab1-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.lab1-heading h1 {
+    margin: 5px 0;
+
+    font-family: var(--font-display);
+    font-size: 25px;
+}
+
+.lab1-heading p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+/* MENSAJE DE ROBO-B */
+
+.lab1-message {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    max-width: 420px;
+    margin: 25px auto 35px;
+    padding: 15px;
+
+    background: white;
+    border: 3px solid var(--morado);
+    border-radius: 18px;
+}
+
+.lab1-robot {
+    font-size: 42px;
+}
+
+.lab1-message h2 {
+    margin: 0 0 5px;
+    color: var(--morado);
+    font-size: 17px;
+}
+
+.lab1-message p {
+    margin: 0;
+    color: #444;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ÁREA DEL MAPA */
+
+.lab1-map-title {
+    text-align: center;
+    color: white;
+
+    font-family: var(--font-display);
+    font-size: 16px;
+
+    margin-bottom: 25px;
+}
+
+.lab1-map {
+    position: relative;
+
+    width: 100%;
+    max-width: 420px;
+    height: 980px;
+
+    margin: 0 auto;
+}
+
+/* CAMINO ENTRE NIVELES */
+
+.lab1-path {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+/* NODOS DE NIVELES */
+
+.lab1-level {
+    position: absolute;
+
+    width: 78px;
+    height: 78px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--morado);
+    color: white;
+
+    border: 5px solid white;
+    border-radius: 50%;
+
+    box-shadow: 0 6px 0 var(--sombra);
+
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+
+    z-index: 2;
+}
+
+.lab1-level:hover {
+    border-color: #ffe66d;
+}
+
+.level-number {
+    font-family: var(--font-display);
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.level-label {
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.level-lock {
+    font-size: 23px;
+}
+
+/* POSICIONES DE LOS NIVELES */
+
+.level-1 {
+    left: 50%;
+    top: 7.14%;
+}
+
+.level-2 {
+    left: 76.4%;
+    top: 21.12%;
+}
+
+.level-3 {
+    left: 50%;
+    top: 35.1%;
+}
+
+.level-4 {
+    left: 23.6%;
+    top: 49.08%;
+}
+
+.level-5 {
+    left: 50%;
+    top: 63.06%;
+}
+
+.level-6 {
+    left: 76.4%;
+    top: 77.04%;
+}
+
+.level-7 {
+    left: 50%;
+    top: 91.02%;
+}
+
+/* ESTADOS DE LOS NIVELES */
+
+.lab1-level.locked {
+    background: #aaa;
+    border-color: #ddd;
+    box-shadow: 0 6px 0 #777;
+    cursor: not-allowed;
+}
+
+.lab1-level.locked:hover {
+    border-color: #ddd;
+}
+
+.lab1-level.unlocked {
+    background: var(--morado);
+    cursor: pointer;
+}
+
+.lab1-level.completed {
+    background: #25a96b;
+    box-shadow: 0 6px 0 #147347;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .lesson-grid {
+        gap: 20px;
+    }
+
+    .lesson-card {
+        height: 160px;
+    }
+
+}
+
+/* =========================================
+   DISPOSITIVOS MÓVILES
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* SELECTOR ANTERIOR */
+
+    .selector-screen {
+        padding: 20px;
+    }
+
+    .selector-title {
+        margin-top: 90px;
+        font-size: 22px;
+    }
+
+    .lesson-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .lesson-option h2 {
+        font-size: 16px;
+    }
+
+    .lesson-card {
+        width: 85%;
+        height: 145px;
+    }
+
+    .game-controls {
+        top: 20px;
+        right: 20px;
+    }
+
+    .mascot-profile,
+    .side-control {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* MAPA DEL LABORATORIO 1 */
+
+    .lab1-screen {
+        padding: 20px 15px 40px;
+    }
+
+    .lab1-heading h1 {
+        font-size: 19px;
+    }
+
+    .lab1-heading p {
+        font-size: 12px;
+    }
+
+    .lab1-subtitle {
+        font-size: 9px;
+    }
+
+    .lab1-back {
+        width: 38px;
+        height: 38px;
+        font-size: 23px;
+    }
+
+    .lab1-message {
+        margin: 20px auto 30px;
+        padding: 12px;
+    }
+
+    .lab1-robot {
+        font-size: 34px;
+    }
+
+    .lab1-message h2 {
+        font-size: 15px;
+    }
+
+    .lab1-message p {
+        font-size: 12px;
+    }
+
+    .lab1-map-title {
+        font-size: 13px;
+    }
+
+    .lab1-map {
+        height: 900px;
+        max-width: 360px;
+    }
+
+    .lab1-level {
+        width: 65px;
+        height: 65px;
+        border-width: 4px;
+    }
+
+    .level-number {
+        font-size: 23px;
+    }
+
+    .level-label {
+        font-size: 8px;
+    }
+
+    .level-lock {
+        font-size: 19px;
+    }
+
+}
+
+/* =========================================
+   PANTALLAS DE POCA ALTURA
+========================================= */
+
 @media (max-height: 650px) and (min-width: 600px) {
-  .home-content {
-    transform: scale(.82);
-  }
 
-  .mascot-stage {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+    .home-content {
+        transform: scale(.82);
+    }
+
+    .mascot-stage {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
 }
 
-/* DISPOSITIVOS MÓVILES */
+/* =========================================
+   PANTALLA PRINCIPAL EN MÓVILES
+========================================= */
+
 @media (max-width: 520px) {
-  .game-home {
-    padding-inline: 1rem;
-  }
 
-  .home-content {
-    transform: translateY(0);
-  }
+    .game-home {
+        padding-inline: 1rem;
+    }
 
-  .game-title h1 {
-    font-size: clamp(1.55rem, 8vw, 2.35rem);
-  }
+    .home-content {
+        transform: translateY(0);
+    }
 
-  .mascot-stage {
-    width: min(76vw, 20rem);
-    margin-block: .8rem .45rem;
-  }
+    .game-title h1 {
+        font-size: clamp(1.55rem, 8vw, 2.35rem);
+    }
 
-  .start-button {
-    width: min(72vw, 17rem);
-    min-height: 3.9rem;
-  }
+    .mascot-stage {
+        width: min(76vw, 20rem);
+        margin-block: .8rem .45rem;
+    }
 
-  .settings-button {
-    width: 2.8rem;
-    border-radius: .85rem;
-  }
+    .start-button {
+        width: min(72vw, 17rem);
+        min-height: 3.9rem;
+    }
+
+    .settings-button {
+        width: 2.8rem;
+        border-radius: .85rem;
+    }
+
 }
 
-/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+/* =========================================
+   MOVIMIENTO REDUCIDO
+========================================= */
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-  }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+
+}
+
+.lab1-robot img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    display: block;
 }
